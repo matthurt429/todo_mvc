@@ -13,8 +13,8 @@
     <div class="container">
       <ul class="nav navbar-nav">
         <%= render 'nav_link', text: 'Home', path: root_path %>
-        <%= render 'nav_link', text: 'List', path: lists_path %>
-        <%= render 'nav_link', text: 'New List', path: new_list_path %>
+        <%= render 'nav_link', text: 'List', path: lists_path if user_signed_in? %>
+        <%= render 'nav_link', text: 'New List', path: new_list_path if user_signed_in? %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in?%>
