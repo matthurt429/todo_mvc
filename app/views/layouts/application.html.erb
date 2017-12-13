@@ -11,6 +11,9 @@
   <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
+      <div class="navbar-header">
+        <%= link_to image_tag('download.jpeg', height:'51'), root_path %>
+      </div>
       <ul class="nav navbar-nav">
         <%= render 'nav_link', text: 'Home', path: root_path %>
         <%= render 'nav_link', text: 'List', path: lists_path if user_signed_in? %>
@@ -27,8 +30,11 @@
       </ul>
     </div>
   </nav>
+
+  <div class="container">
     <p id="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+  </div>
   </body>
 </html>

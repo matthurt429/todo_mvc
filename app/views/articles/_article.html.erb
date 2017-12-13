@@ -1,0 +1,22 @@
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="article-title">
+        <%= article.title %>
+        <small>
+          by <%= article.user.email %>
+        </small>
+        <small class="pull-right">
+          <br>
+          <%= time_ago_in_words(article.created_at) %>
+        </small>
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= article.content.html_safe %>
+      </div>
+    </div>
+  </div>
