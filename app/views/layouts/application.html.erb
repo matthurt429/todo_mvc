@@ -21,7 +21,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in?%>
-          <%= render 'nav_link', text: "Signed in as #{current_user.email}", path:edit_user_registration_path %>
+          <%= render 'nav_link', text: "Signed in as #{current_user.firstname}", path:edit_user_registration_path %>
           <%= render 'nav_link', text: "Log out", path: destroy_user_session_path, link_options: {method: :delete} %>
         <% else %>
           <%= render 'nav_link', text:"Log in", path:new_user_session_path%>
