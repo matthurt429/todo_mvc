@@ -1,0 +1,33 @@
+<h1>All Users</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">Name</th>
+        <th scope="col">Article Count</th>
+        <th scope="col">List Count</th>
+        <th scope="col">Sign In Count</th>
+        <th scope="col">Last Signed in</th>
+        <th scope="col">Make Admin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.firstname %> &nbsp; <%= user.lastname %></td>
+          <td><%= user.articles.count %></td>
+          <td><%= user.lists.count %></td>
+          <td><%= user.sign_in_count %></td>
+          <td><span title="<%=user.last_sign_in_at || "N/A"%>"> <%= user.last_sign_in_at ? time_ago_in_words(user.last_sign_in_at) : "N/A" %></span></td>
+          <td>
+            <% unless user.is_admin %>
+              <button class="btn btn-success"><%= link_to '<span class="glyphicon glyphicon-plus"></span>'.html_safe, promote_path(user)%></button>
+            <%else%>
+            <strong>ADMIN</strong>
+            <%end%>
+          </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
