@@ -2,6 +2,9 @@ class AdminController < ApplicationController
   before_action :is_admin
   def index
     @users = User.all
+    @article_count = Article.count
+    @list_count = List.count
+    @item_count = Item.count
   end
 
   def promote

@@ -1,4 +1,16 @@
-<h1>All Users</h1>
+<div class="stats container">
+  <div class="row">
+    <h1>All Users</h1>
+    <div class=" col-md-offset-7 col-md-5">
+      Users <span class="badge"> <%= @users.count %></span>
+      Articles <span class="badge"> <%= @article_count %></span>
+      Lists <span class="badge"> <%= @list_count %></span>
+      Items <span class="badge"> <%= @item_count %></span>
+
+    </div>
+  </div>
+</div>
+
   <table class="table">
     <thead>
       <tr>

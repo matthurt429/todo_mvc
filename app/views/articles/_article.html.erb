@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <h1 class="article-title">
+          <span class="badge"><%= article.claps %></span>
         <% if current_page? articles_path %>
           <%= link_to article.title, article %>
         <% else %>
@@ -19,8 +20,18 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <% if current_page? articles_path %>
+      <div class="col-md-12 sidebar-box">
+        <%= article.content.html_safe %>
+        <span class="read-more"><a href="<%= article_path(article) %>" class="button pull-right">Read More</a></span>
+      </div>
+      <% else %>
+      <div class="col-md-12 ">
         <%= article.content.html_safe %>
       </div>
+
+      <%= link_to "claps <span class='badge'>#{article.claps}</span>".html_safe, clap_article_path(article), method: :put, class: 'btn btn-success' %>
+      <%end%>
+
     </div>
   </div>
